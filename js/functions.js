@@ -2,6 +2,11 @@
 
 let rand_num1 = 0
 let rand_num2 = 0
+let correctAnswers = 0
+let incorrectAnswers = 0
+
+document.querySelector('#correct').innerHTML = correctAnswers
+document.querySelector('#incorrect').innerHTML = incorrectAnswers
 
 const getRandomIntNumberInRange = (min,max) => {
     return Math.floor(Math.random() * max) + min;
@@ -22,8 +27,12 @@ document.querySelector('button').addEventListener('click', () => {
     const answer = Number(document.querySelector('input').value)
     const correctAnswer = rand_num1 + rand_num2
     if (answer === correctAnswer) {
-        alert('Corrext!')
+        correctAnswers ++
+        document.querySelector('#correct').innerHTML = correctAnswers
+        alert('Correct!')
     } else {
+        incorrectAnswers ++
+        document.querySelector('#incorrect').innerHTML = incorrectAnswers
         alert('Incorrect!')
     }
 
